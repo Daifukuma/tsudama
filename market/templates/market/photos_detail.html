@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <title>product</title> <!--サイトの名前-->
+
+  </head>
+  <body>
+    <div class="header">
+      <!--  メニュー  -->
+      <header>
+      <div class="header-menu">
+            <li><a id="post" href="{% url 'home' %}">ホーム</a></li>
+            <li><a id="post" href="{% url 'photos_new' %}">投稿</a></li> <!-- 更新 -->
+            {% if request.user.is_authenticated %}
+              <li><a id="mypage" href="{% url 'users_exhibit' request.user.id %}">マイページ</a></li>
+              <li><a id="logout" href="{% url 'logout' %}">ログアウト</a></li>
+            {% else %}
+              <li><a id="login" href="{% url 'login' %}">ログイン</a></li>
+            {% endif %}
+      </div>
+      </header>
+      <!-- ********** -->
+    </div>
+    <center>
+     <!--<img src="logo.png" alt="ロゴ" width="150" height="100">-->
+     <div class="main_img"></div><!--画像（ロゴ）表示-->
+      </center>
+
+{% block content %}
+
+<div class="photo-detail">
+<br>
+<div class="flame" style="padding: 10px; margin-bottom: 10px; border: 1px solid #8b8888; border-radius: 10px;">
+<h1>〜　{{ photo.title }}　〜</h1>
+<p>{{ photo.category }}</p>
+<button id="good" type="button">♡</button>
+<p id="goodmoji">いいね！</p>
+<img src="{{ photo.image.url }}" class="photo-img">
+<p>{{ photo.comment }}</p>
+<!-- 削除ボタン -->
+{% if request.user == photo.user %}
+<form method="post" action="{% url 'photos_delete' photo.id %}">{% csrf_token %}
+    <button class="btn" type="submit" onclick='return confirm("本当に削除しますか？");'>削除</button>
+</form>
+{% endif %}
+<a href="{% url 'talk' %}"><button id="talk" type="button">交渉へ</button></a>
+</div>
+</div>
+{% endblock %}
+<p id="exhibitor">出品者　▼</p>
+<div class="flame2" style="padding: 10px; margin-bottom: 10px; border: 1px solid #8b8888; border-radius: 10px;">
+  <p id="exhibitor-infomation">出品者情報</p>
+<a href="{% url 'users_exhibit' photo.user.id %}">@{{ photo.user }}</a>
+</div>
+
+</body>
+</html>

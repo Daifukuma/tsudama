@@ -1,20 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <title>home</title> <!--サイトの名前-->
-  </head>
-  <body>
-    <div class="header"></div>
-    <center>
-      <!--<img src="img/logo.png" alt="ロゴ" width="150" height="100">-->
-      <div class="main_img"></div><!--画像（ロゴ）表示-->
-      </center>
+{% extends 'market/home_base.html' %}
 
+{% block content %}
     <form method="post" action="example.cgi">
       <form action="cgi-bin/abc.cgi" method="post">
 	<form action="cgi-bin/example.cgi" class="word-search" method="get">
@@ -85,22 +71,14 @@
 
       </form>
 
-      <!--<button type=“button” onclick="location.href='https://www.sejuku.net'">遷移！</button>
-	  URLで飛ばすやり方
-	-->
-<a href="{% url 'product' %}"><div class="onebook"></div></a>
-
-      {% for book in books %}
-            <h2>書籍名:{{ book.title }}</h2>
-            <p>著者名:{{ book.author }}</p>
-            <p>出版社:{{ book.publisher }}</p>
-            <p>出版日:{{ book.published_date }}</p>
-            <p>版数:{{ book.version }}</p>
-            <p>ISBN:{{ book.isbn }}</p>
-            <p>宣伝文:{{ book.text }}</p>
-            <p>状態:{{ book.state }}</p>
-            <p>価格:{{ book.price }}</p>
-        {% endfor %}
-
-  </body>
-</html>
+<div class="container">
+  {% for message in messages %}
+    <p class="message-success">{{ message }}</p>
+  {% endfor %}
+{% if category %}
+    <h2>カテゴリー：{{ category.title }} の検索結果</h2>
+{% endif %}
+{% include 'market/photos_list.html' %}
+</div>
+</div>
+{% endblock %}

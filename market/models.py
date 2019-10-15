@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 #import文を足すことを忘れずに
 
 class Lesson(models.Model):
@@ -25,7 +26,7 @@ class Lesson(models.Model):
         (3,'水曜'),
         (4,'木曜'),
         (5,'金曜'),
-        
+
         )
 
     PERIOD_CHOICES= (
@@ -35,7 +36,7 @@ class Lesson(models.Model):
         (4,'4限'),
         (5,'5限'),
         (6,'6限'),
-        
+
         )
     LEVEL_CHOICES= (
         (1,'1年'),
@@ -43,7 +44,7 @@ class Lesson(models.Model):
         (3,'3年'),
         (4,'4年'),
         )
-    
+
 
     undergraduate = models.IntegerField(
                                 verbose_name = '学部',
@@ -70,7 +71,7 @@ class Lesson(models.Model):
                                 choices = TERM_CHOICES,
                                 default = 1,
                                 )
-    
+
     dayOfTheWeek = models.IntegerField(
                                 verbose_name = '曜日',
                                 choices = WEEK_CHOICES,
@@ -88,11 +89,11 @@ class Lesson(models.Model):
                                 choices = LEVEL_CHOICES,
                                 default = 1,
                                 )
-    
-        
+
+
 
 class Book(models.Model):
-    
+
     STATE_CHOICES = (
                      (1, 'とても良い'),
                      (2, '良い'),
@@ -153,8 +154,24 @@ class Book(models.Model):
                                 verbose_name = '価格',
                                 default = 300,
                                 )
-    
-    
+
+
     def __str__(self):
         return self.title
 
+class Category(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
+
+class Photo(models.Model):
+    title = models.CharField(max_length=150)
+    comment = models.TextField(blank=True)
+    image = models.ImageField(upload_to = 'photos')
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

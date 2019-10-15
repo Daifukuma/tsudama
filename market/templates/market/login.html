@@ -1,3 +1,4 @@
+<!--   *****ログイン、新規登録のbaseを作成*****   -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="ja">
@@ -6,25 +7,34 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <title>home</title> <!--サイトの名前-->
+    <title>login</title> <!--サイトの名前-->
   </head>
+
   <body>
     <div class="header"></div>
+
     <center>
-      <!--<img src="img/logo.png" alt="ロゴ" width="150" height="100">-->
-      <div class="main_img"></div><!--画像（ロゴ）表示-->
+      <div class="main_img"></div>
     </center>
+
     <div class="flame">
-      <p id="noacount">アカウントを持っていないなら・・・</p>
-      <p><input type="submit" id="new" value="新規登録"></p>
-      <hr>
-      <form method="post" action="example.cgi">
-	       <input type="search" name="address" id="search" placeholder="津田メールアドレス"><br>
-         <input type="password" name="password" id="search" placeholder="パスワード"><br>
-	        <a href="{% url 'home' %}"><button id="login" type="button">ログイン</button></a>
-          <!--<input type="submit" name="submit" id="search-button" value="ログイン">-->
-	    </form>
-      <u id="forget">パスワードを忘れた？</u>
+      {% block content %}
+        <p id="noacount">アカウントを持っていないなら・・・</p>
+        <a href="{% url 'signup' %}"><input type="submit" id="new" value="新規登録"></a>
+        <hr>
+        <form method="post">{% csrf_token %}
+          {% if form.errors %}
+          <p>ユーザー名かパスワードが間違っています。<br>もう一度入力してください。</p>
+          {% endif %}
+          <input name="username" id="search" placeholder="ユーザー名">
+          <br>
+          <input type="password" name="password" id="search" placeholder="パスワード">
+          <br>
+          <input type="submit" id="login" value="ログイン">
+        </form>
+        <u id="forget">パスワードを忘れた？</u>
+      {% endblock %}
     </div>
+
   </body>
 </html>
