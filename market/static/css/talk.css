@@ -11,6 +11,9 @@ p {
   height: 40px;
   background: #8B8888;
 }
+#post {
+  text-align: right;
+}
 .main_img {
   position: relative;
   top: 10px;
