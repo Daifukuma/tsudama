@@ -24,7 +24,7 @@ p {
   margin: auto;
   top: 20px;
   width: 700px;
-  height: 500px;
+  height: 550px;
   background: #fff;
 }
 h2 {
@@ -87,6 +87,39 @@ h2 {
 #exhibitor-infomation {
   color: #989898;
 }
+header {
+  position: relative;
+  text-align: right;
+    border-bottom: solid 1px #000;
+    height: 70px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+body > .container {
+    width: 65%;
+    padding-top: 60px;
+}
+
+header h1 {
+    margin: 0;
+    height: 100%;
+    line-height: 70px;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-menu a {
+    padding: 10px;
+    margin-left: 10px;
+}
+
 .photo {
     width: calc(100%/3);
     float: left;
