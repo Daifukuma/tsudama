@@ -1,0 +1,40 @@
+<!--   *****ログイン、新規登録のbaseを作成*****   -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>login</title> <!--サイトの名前-->
+  </head>
+
+  <body>
+    <div class="header"></div>
+
+    <center>
+      <div class="main_img"></div>
+    </center>
+
+    <div class="flame">
+      {% block content %}
+        <p id="noacount">アカウントを持っていないなら・・・</p>
+        <a href="{% url 'signup' %}"><input type="submit" id="new" value="新規登録"></a>
+        <hr>
+        <form method="post">{% csrf_token %}
+          {% if form.errors %}
+          <p>ユーザー名かパスワードが間違っています。<br>もう一度入力してください。</p>
+          {% endif %}
+          <input name="username" id="search" placeholder="ユーザー名">
+          <br>
+          <input type="password" name="password" id="search" placeholder="パスワード">
+          <br>
+          <input type="submit" id="login" value="ログイン">
+        </form>
+        <u id="forget">パスワードを忘れた？</u>
+      {% endblock %}
+    </div>
+
+  </body>
+</html>

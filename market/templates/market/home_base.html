@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>home</title> <!--サイトの名前-->
+  </head>
+  <body>
+    <div class="header">
+      <!--メニュー-->
+      <div class="header-menu">
+        <ul><li>
+<!--          <a href="#">Products <span class="caret"></span></a>-->
+    		<div>
+    			<ul>
+            <li><a id="home" href="{% url 'home' %}">ホーム</a></li>
+            <li><a id="post" href="{% url 'photos_new' %}">投稿</a></li> <!-- 更新 -->
+            {% if request.user.is_authenticated %}
+              <li><a id="mypage" href="{% url 'users_exhibit' request.user.id %}">マイページ</a></li>
+              <li><a id="logout" href="{% url 'logout' %}">ログアウト</a></li>
+            {% else %}
+              <li><a id="login" href="{% url 'login' %}">ログイン</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </li></ul>
+      </div>
+      <!-- -->
+    </div>
+    <center>
+      <!--<img src="img/logo.png" alt="ロゴ" width="150" height="100">-->
+      <div class="main_img"></div><!--画像（ロゴ）表示-->
+      </center>
+
+{% block content %}{% endblock %}
+
+    </body>
+</html>

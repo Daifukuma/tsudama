@@ -25,7 +25,7 @@ SECRET_KEY = 'sjohwo$lgu@5rq6jl7lrq8mnu$f(yrf%(2((mnm%3zvag0rn18'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['*', '127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'market',
+    'django_cleanup',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +122,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#画像の保存先を設定する
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+#画像を削除できるようにする
+
+#ログイン機能をつける
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'logout'

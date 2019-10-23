@@ -1,0 +1,46 @@
+<!--   *****ログイン、新規登録のbaseを作成*****   -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <title>login</title> <!--サイトの名前-->
+  </head>
+  <body>
+    <div class="header"></div>
+    <center>
+      <!--<img src="img/logo.png" alt="ロゴ" width="150" height="100">-->
+      <div class="main_img"></div><!--画像（ロゴ）表示-->
+    </center>
+    <div class="flame">
+
+{% block content %}
+
+<h2>新規登録</h2>
+
+<form method="post" action="{% url 'signup' %}">{% csrf_token %}
+    <div class="formposi"><label>ユーザー名 :</label>
+    <div class="form">{{ form.username }}
+    {{ form.username.errors }}</div></div>
+    <br>
+    <div class="formposi"><label>パスワード :</label>
+    <div class="form">{{ form.password1 }}
+    {{ form.password1.errors }}</div></div>
+    <br>
+    <div class="formposi"><label>パスワード(確認) :</label>
+    <div class="form">{{ form.password2 }}
+    {{ form.password2.errors }}</div></div>
+    <br>
+    <input type="submit" id="signup" value="登録する">
+</form>
+
+<u><a href="{% url 'login' %}" id="login">ログインはこちら</a></u>
+
+{% endblock %}
+
+</div>
+</body>
+</html>
