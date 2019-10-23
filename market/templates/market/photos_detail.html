@@ -36,15 +36,16 @@
 <div class="photo-detail">
 <br>
 <div class="flame" style="padding: 10px; margin-bottom: 10px; border: 1px solid #8b8888; border-radius: 10px;">
-<h1>〜　{{ photo.title }}　〜</h1>
-<p>{{ photo.category }}</p>
+<h1>〜　{{ textbook.title }}　〜</h1>
 <button id="good" type="button">♡</button>
 <p id="goodmoji">いいね！</p>
-<img src="{{ photo.image.url }}" class="photo-img">
-<p>{{ photo.comment }}</p>
+<img src="{{ textbook.image.url }}" class="photo-img">
+<p>{{ textbook.department }} {{ textbook.schoolyear }} {{ textbook.lesson }}</p>
+
+<p>{{ textbook.comment }}</p>
 <!-- 削除ボタン -->
-{% if request.user == photo.user %}
-<form method="post" action="{% url 'photos_delete' photo.id %}">{% csrf_token %}
+{% if request.user == textbook.user %}
+<form method="post" action="{% url 'photos_delete' textbook.id %}">{% csrf_token %}
     <button class="btn" type="submit" onclick='return confirm("本当に削除しますか？");'>削除</button>
 </form>
 {% endif %}
@@ -55,7 +56,7 @@
 <p id="exhibitor">出品者　▼</p>
 <div class="flame2" style="padding: 10px; margin-bottom: 10px; border: 1px solid #8b8888; border-radius: 10px;">
   <p id="exhibitor-infomation">出品者情報</p>
-<a href="{% url 'users_exhibit' photo.user.id %}">@{{ photo.user }}</a>
+<a href="{% url 'users_exhibit' textbook.user.id %}">@{{ textbook.user }}</a>
 </div>
 
 </body>

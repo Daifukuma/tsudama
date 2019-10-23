@@ -72,11 +72,8 @@
       </form>
 
 <div class="container">
-  {% for message in messages %}
-    <p class="message-success">{{ message }}</p>
-  {% endfor %}
-{% if category %}
-    <h2>カテゴリー：{{ category.title }} の検索結果</h2>
+{% if lesson %}
+    <h2>カテゴリー：{{ lesson.title }} の検索結果</h2>
 {% endif %}
 {% include 'market/photos_list.html' %}
 </div>

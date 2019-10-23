@@ -10,16 +10,32 @@
               <td>{{ form.title }}</td>
           </tr>
           <tr>
-              <th>コメント</th>
-              <td>{{ form.comment }}</td>
-          </tr>
-          <tr>
               <th>画像</th>
               <td>{{ form.image }}</td>
           </tr>
           <tr>
-              <th>カテゴリー</th>
-              <td>{{ form.category }}</td>
+              <th>使用する学科</th>
+              <td>{{ form.department }}</td>
+          </tr>
+          <tr>
+              <th>推奨学年</th>
+              <td>{{ form.schoolyear }}</td>
+          </tr>
+          <tr>
+              <th>使用する授業</th>
+              <td>{{ form.lesson }}</td>
+          </tr>
+          <tr>
+              <th>教科書の状態</th>
+              <td>{{ form.status }}</td>
+          </tr>
+          <tr>
+              <th>価格</th>
+              <td>{{ form.point }}</td>
+          </tr>
+          <tr>
+              <th>コメント</th>
+              <td>{{ form.comment }}</td>
           </tr>
       </table>
       <button type="submit" class="btn">保存</button>

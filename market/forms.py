@@ -1,7 +1,11 @@
 from django.forms import ModelForm
-from .models import Photo
+from .models import Textbook
 
-class PhotoForm(ModelForm):
+class TextbookForm(ModelForm):
     class Meta:
-        model = Photo
-        fields = ['title', 'comment', 'image', 'category']
+        model = Textbook
+        fields = ['title', 'image', 'department', 'schoolyear', 'lesson', 'comment', 'status', 'point']
+#        widgets = {
+#            'title': forms.textInput(attrs={'placeholder':'教科書のタイトル'}),
+#            'comment': forms.teztarea(attrs={'rows':4}),
+#        }

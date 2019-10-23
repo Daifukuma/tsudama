@@ -4,8 +4,8 @@
 
 <h2 class="user-name">ユーザー名：　{{ user.username }}</h2>
 
-{% if photos.count != 0 %}
-    <p>出品数：<strong>{{ photos.count }}</strong>件</p>
+{% if textbooks.count != 0 %}
+    <p>出品数：<strong>{{ textbooks.count }}</strong>件</p>
 {% else %}
     {% if user == request.user %}
         <p>初めての出品をしてみましょう！</p>
@@ -13,7 +13,9 @@
         <p>@{{ user.username }}さんはまだ出品していません。</p>
     {% endif %}
 {% endif %}
-
+{% for message in messages %}
+            <p class="message-success">{{ message }}</p>
+            {% endfor %}
 {% include 'market/photos_list.html' %}
 
 {% endblock %}
