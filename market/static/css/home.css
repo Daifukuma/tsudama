@@ -180,7 +180,9 @@ p {
 }
 
 .photo {
+  background: #fff;
     width: calc(100%/5);
+    width: auto;
     height: auto;
     float: left;
     padding: 10px;
@@ -211,7 +213,7 @@ p {
 .photo-img {
     width: 50%;
     max-width: 150px;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
     border-radius: 4px;
 }
