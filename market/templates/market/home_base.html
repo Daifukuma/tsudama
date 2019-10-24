@@ -12,10 +12,7 @@
     <div class="header">
       <!--メニュー-->
       <div class="header-menu">
-        <ul><li>
-         <a href="#">Products <span class="caret"></span></a>
-    		<div>
-    			<ul>
+        <ul>
             <li><a id="home" href="{% url 'home' %}">ホーム</a></li>
             <li><a id="post" href="{% url 'photos_new' %}">投稿</a></li> <!-- 更新 -->
             {% if request.user.is_authenticated %}
@@ -25,8 +22,6 @@
               <li><a id="login" href="{% url 'login' %}">ログイン</a></li>
             {% endif %}
           </ul>
-        </div>
-      </li></ul>
       </div>
       <!-- -->
     </div>
