@@ -1,0 +1,19 @@
+{% extends 'market/home.html' %}
+
+{% block content %}
+
+<h2 class="user-name">お気に入り</h2>
+
+{% if textbooks.count != 0 %}
+    <p>お気に入り件数：<strong>{{ textbooks.count }}</strong>件</p>
+{% else %}
+    {% if user == request.user %}
+        <p>お気に入りを追加してみましょう！</p>
+    {% else %}
+        <p>@{{ user.username }}さんはまだお気に入りを追加していません。</p>
+    {% endif %}
+{% endif %}
+
+{% include 'market/photos_list.html' %}
+
+{% endblock %}
