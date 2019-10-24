@@ -174,11 +174,11 @@ class Status(models.Model):
     def __str__(self):
         return self.title
 
-#class Department(models.Model):
-#    title = models.CharField(max_length=20)
-#
-#    def __str__(self):
-#        return self.title
+class Department(models.Model):
+    title = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title
 
 class Schoolyear(models.Model):
     title = models.CharField(max_length=20)
@@ -187,28 +187,6 @@ class Schoolyear(models.Model):
         return self.title
 
 class Textbook(models.Model):
-
-    DEPARTMENT_CHOICES = (
-            (1, '共通科目'),
-            (2, '外国語科目'),
-            (3, '健康余暇科学科目'),
-            (4, '英語英文学科'),
-            (5, '国際関係学科'),
-            (6, '数学科'),
-            (7, '情報科学科'),
-    )
-    SCHOOLYEAR_CHOICES = (
-            (1, '1年生'),
-            (2, '2年生'),
-            (3, '3年生'),
-            (4, '4年生'),
-    )
-    STATUS_CHOICES = (
-            (1, '新品同様'),
-            (2, '汚れ、折り線有り'),
-            (3, '書き込み有り'),
-    )
-
     title = models.CharField(
         verbose_name='タイトル',
         max_length=30,
@@ -218,26 +196,14 @@ class Textbook(models.Model):
         upload_to = 'textbooks',
     )
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    department = models.IntegerField(
-        verbose_name='使用する学科',
-        choices=DEPARTMENT_CHOICES,
-        default=1,
-        )
-    schoolyear = models.IntegerField(
-        verbose_name='推奨学年',
-        choices=SCHOOLYEAR_CHOICES,
-        default=1,
-        )
+    department = models.ForeignKey(Department, verbose_name='使用する学科', on_delete=models.PROTECT, default=1)
+    schoolyear = models.ForeignKey(Schoolyear, verbose_name='推奨学年', on_delete=models.PROTECT)
     lesson = models.ForeignKey(Lesson, verbose_name='使用授業', on_delete=models.PROTECT)
     comment = models.TextField(
         verbose_name='コメント',
         blank=True,
     )
-    status = models.IntegerField(
-    verbose_name='状態',
-    choices=STATUS_CHOICES,
-    default=1,
-    )
+    status = models.ForeignKey(Status, verbose_name='状態', on_delete=models.PROTECT, default=1)
     point = models.PositiveIntegerField(
         verbose_name='価格',
         default=300,

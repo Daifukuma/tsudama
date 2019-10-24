@@ -12,9 +12,9 @@
   <body>
     <div class="header">
       <!--  メニュー  -->
-      <header>
       <div class="header-menu">
-            <li><a id="post" href="{% url 'home' %}">ホーム</a></li>
+        <ul>
+            <li><a id="home" href="{% url 'home' %}">ホーム</a></li>
             <li><a id="post" href="{% url 'photos_new' %}">投稿</a></li> <!-- 更新 -->
             {% if request.user.is_authenticated %}
               <li><a id="mypage" href="{% url 'users_exhibit' request.user.id %}">マイページ</a></li>
@@ -22,8 +22,8 @@
             {% else %}
               <li><a id="login" href="{% url 'login' %}">ログイン</a></li>
             {% endif %}
+          </ul>
       </div>
-      </header>
       <!-- ********** -->
     </div>
     <center>
@@ -41,7 +41,7 @@
 <p id="goodmoji">いいね！</p>
 <img src="{{ textbook.image.url }}" class="photo-img">
 <p>{{ textbook.department }} {{ textbook.schoolyear }} {{ textbook.lesson }}</p>
-
+<p>{{ textbook.status }}</p>
 <p>{{ textbook.comment }}</p>
 <!-- 削除ボタン -->
 {% if request.user == textbook.user %}
