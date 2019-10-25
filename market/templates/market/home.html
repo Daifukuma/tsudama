@@ -1,7 +1,7 @@
 {% extends 'market/home_base.html' %}
 
 {% block content %}
-    <form method="post" action="example.cgi">
+<!--    <form method="post" action="example.cgi">
       <form action="cgi-bin/abc.cgi" method="post">
 	<form action="cgi-bin/example.cgi" class="word-search" method="get">
 
@@ -15,7 +15,7 @@
 	  <input type="checkbox" name="undergraduate" value="学科" checked="checked">学科
 	  <select name="undergraduate">
 	    <!--value=送信される文字列-->
-	    <option value="共通科目">共通科目</option>
+<!--	    <option value="共通科目">共通科目</option>
 	    <option value="外国語科目">外国語科目</option>
 	    <option value="健康余暇科学科目">健康余暇科学科目</option>
 	    <option value="英語英文学科">英語英文学科</option>
@@ -27,7 +27,7 @@
 	  <input type="checkbox" name="term" value="ターム" checked="checked">ターム
 	  <select name="undergraduate">
 	    <!--value=送信される文字列-->
-	    <option value="1ターム">１ターム</option>
+<!--	    <option value="1ターム">１ターム</option>
 	    <option value="2ターム">２ターム</option>
 	    <option value="3ターム">３ターム</option>
 	    <option value="4ターム">４ターム</option>
@@ -37,7 +37,7 @@
 	  <input type="checkbox" name="week" value="曜日" checked="checked">曜日
 	  <select name="undergraduate">
 	    <!--value=送信される文字列-->
-	    <option value="月曜">月曜</option>
+<!--	    <option value="月曜">月曜</option>
 	    <option value="火曜">火曜</option>
 	    <option value="水曜">水曜</option>
 	    <option value="木曜">木曜</option>
@@ -47,7 +47,7 @@
 	  <input type="checkbox" name="period" value="時限" checked="checked">時限
 	  <select name="period">
 	    <!--value=送信される文字列-->
-	    <option value="1限">１限</option>
+<!--	    <option value="1限">１限</option>
 	    <option value="2限">２限</option>
 	    <option value="3限">３限</option>
 	    <option value="4限">４限</option>
@@ -58,7 +58,7 @@
 	  <input type="checkbox" name="level" value="学年" checked="checked">学年
 	  <select name="level">
 	    <!--value=送信される文字列-->
-	    <option value="1年">１年</option>
+<!--	    <option value="1年">１年</option>
 	    <option value="2年">２年</option>
 	    <option value="3年">３年</option>
 	    <option value="4年">４年</option>
@@ -70,6 +70,14 @@
 	<p><input type="submit" id="search-button2" value="検索する"></p>
 
       </form>
+      -->
+
+<!-- //////////////////// -->
+<div class="ui action input" style="width: 100%;">
+      <input type="text" placeholder="検索">
+      <button class="ui button"><i class="search icon"></i></button>
+</div>
+<!-- //////////////////// -->
 
 <div class="container">
 {% if lesson %}

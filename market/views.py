@@ -15,6 +15,7 @@ from .forms import TextbookForm
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 #from .models import Photo, Category
+# /////////////
 
 def book_list(request):
     books = Textbook.objects.order_by('point')
@@ -57,6 +58,9 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'market/signup.html', {'form': form})
+
+# //////////////
+#///////////////
 
 @login_required  # ①
 def photos_new(request):

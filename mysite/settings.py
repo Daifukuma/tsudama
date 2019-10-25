@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'market',
     'django_cleanup',
 #    'imagekit',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

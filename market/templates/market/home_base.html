@@ -6,6 +6,29 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <script type="text/javascript">
+            $(function() {
+                var topBtn = $('#page-top');
+                topBtn.hide();
+                //スクロールが500に達したらボタン表示
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 500) {
+                        topBtn.fadeIn();
+                    } else {
+                        topBtn.fadeOut();
+                    }
+                });
+                //スクロールしてトップ
+                topBtn.click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 500);
+                    return false;
+                });
+            });
+        </script>
+
     <title>home</title> <!--サイトの名前-->
   </head>
   <body>
@@ -32,5 +55,7 @@
 
 {% block content %}{% endblock %}
 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/semantic.js' %}"></script>
     </body>
 </html>
