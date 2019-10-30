@@ -73,16 +73,11 @@
       -->
 
 <!-- //////////////////// -->
-<div class="ui action input" style="width: 100%;">
-      <input type="text" placeholder="検索">
-      <button class="ui button"><i class="search icon"></i></button>
-</div>
-
 <form action="{% url 'search' %}" method="POST" novalidate="novalidate">
     <select class="form-control search-slt">
     <option value="none">学科</option>
-    {% for textbook in department_list %}
-        <option name="selected_department" value="{{ textbook.department }}">{{ textbook.department }}</option>
+    {% for item in department_list %}
+        <option name="selected_department" value="{{ item.department }}">{{ item.department }}</option>
     {% endfor %}
     </select>
 
@@ -97,6 +92,5 @@
     <h2>カテゴリー：{{ lesson.title }} の検索結果</h2>
 {% endif %}
 {% include 'market/photos_list.html' %}
-</div>
 </div>
 {% endblock %}

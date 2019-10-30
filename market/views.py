@@ -11,7 +11,7 @@ from . import views
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 #from .forms import PhotoForm
-from .forms import TextbookForm
+from .forms import TextbookForm, SearchForm
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 #from .models import Photo, Category
@@ -19,6 +19,7 @@ from django.views.decorators.http import require_POST
 from django.views.generic import ListView
 from .context_processor import common
 from django.db.models import Q
+from django import forms
 from django_filters import rest_framework as filters
 
 class Index(ListView):
@@ -26,7 +27,7 @@ class Index(ListView):
     template_name = 'market/home.html'
 
     def get_context_data(self, *args, **kwargs):
-        searchform = TextbookForm()
+        searchform = SearchForm()
         textbook_list = Textbook.objects.all()
         params = {
             'searchform': searchform,
@@ -36,15 +37,16 @@ class Index(ListView):
 
 def Search(request):
     if request.method == 'POST':
-        form = TextbookForm(request.POST)
+        form = SearchForm(request.POST)
 
         if form.is_valid():
-            selected_department = form.cleaned_data['selected_department']
-            freeword = form.cleaned_data['freeword']
-            search_list = Textbook.objects.filter(Q(title__icontains = freeword)|Q(department__department = selected_department))
+            selected_department = form.cleaned_data.get['selected_department']
+#            selected_department =  request.POST.get('selected_department', None)
+            freeword = form.cleaned_data.get['freeword']
+            textbook_list = Textbook.objects.filter(Q(title__icontains = 'freeword')|Q(department__department = 'selected_department')).distinct()
 
     params = {
-        'search_list': search_list,
+        'textbook_list': textbook_list,
     }
 
     return render(request, 'market/home.html', params)
