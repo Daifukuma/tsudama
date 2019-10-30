@@ -175,10 +175,10 @@ class Status(models.Model):
         return self.title
 
 class Department(models.Model):
-    title = models.CharField(max_length=20)
+    department = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.title
+        return str(self.department)
 
 class Schoolyear(models.Model):
     title = models.CharField(max_length=20)
@@ -196,7 +196,7 @@ class Textbook(models.Model):
         upload_to = 'textbooks',
     )
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    department = models.ForeignKey(Department, verbose_name='使用する学科', on_delete=models.PROTECT, default=1)
+    department = models.ForeignKey('market.Department', verbose_name='使用する学科', on_delete=models.PROTECT, default=1)
     schoolyear = models.ForeignKey(Schoolyear, verbose_name='推奨学年', on_delete=models.PROTECT)
     lesson = models.ForeignKey(Lesson, verbose_name='使用授業', on_delete=models.PROTECT)
     comment = models.TextField(

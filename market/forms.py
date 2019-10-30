@@ -9,3 +9,8 @@ class TextbookForm(ModelForm):
 #            'title': forms.textInput(attrs={'placeholder':'教科書のタイトル'}),
 #            'comment': forms.teztarea(attrs={'rows':4}),
 #        }
+
+#class SearchForm(ModelForm):
+#    class Meta:
+#        model = Textbook
+#        fields = ['title', 'image', 'department', 'schoolyear', 'lesson', 'comment', 'status', 'point']

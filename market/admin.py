@@ -27,8 +27,8 @@ class StatusAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
 
 class DepartmentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title')
-    list_display_links = ('id', 'title')
+    list_display = ('id', 'department')
+    list_display_links = ('id', 'department')
 
 class SchoolyearAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')

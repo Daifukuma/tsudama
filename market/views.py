@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 #from .models import Photo
-from .models import Textbook, Lesson
+from .models import Textbook, Lesson, Department
 from django.contrib.auth.forms import UserCreationForm
 from . import views
 from django.contrib.auth import authenticate, login
@@ -16,6 +16,39 @@ from django.contrib import messages
 from django.views.decorators.http import require_POST
 #from .models import Photo, Category
 # /////////////
+from django.views.generic import ListView
+from .context_processor import common
+from django.db.models import Q
+from django_filters import rest_framework as filters
+
+class Index(ListView):
+    model = Textbook
+    template_name = 'market/home.html'
+
+    def get_context_data(self, *args, **kwargs):
+        searchform = TextbookForm()
+        textbook_list = Textbook.objects.all()
+        params = {
+            'searchform': searchform,
+            'textbook_list': textbook_list,
+        }
+        return params
+
+def Search(request):
+    if request.method == 'POST':
+        form = TextbookForm(request.POST)
+
+        if form.is_valid():
+            selected_department = form.cleaned_data['selected_department']
+            freeword = form.cleaned_data['freeword']
+            search_list = Textbook.objects.filter(Q(title__icontains = freeword)|Q(department__department = selected_department))
+
+    params = {
+        'search_list': search_list,
+    }
+
+    return render(request, 'market/home.html', params)
+# /////////////////
 
 def book_list(request):
     books = Textbook.objects.order_by('point')
