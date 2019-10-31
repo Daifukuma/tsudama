@@ -19,9 +19,11 @@ import sys
 
 if __name__ == '__main__':
 #    main()
-    os.environ.setdefault("DHANGO_SETTINGS_MODULE", "project.settings")
+#    os.environ.setdefault("DHANGO_SETTINGS_MODULE", "project.settings")
+    os.environ.setdefault('DJANGO_CONFIGURATION','Dev')
     try:
         from django.core.management import execute_from_command_line
+        from configurations.management im@ort execute_from_command_line
     except ImportError as exc:
         raise ImportError(
             "Couldn't import Django. Are you sure it's installed and "
