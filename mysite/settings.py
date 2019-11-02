@@ -86,6 +86,9 @@ DATABASES = {
         'PASSWORD': '3pro1106',
         'HOST': 'Tsudama01.mysql.pythonanywhere-services.com',
         'PORT': '',
+        'OPTIONS':{
+            'init_command': 'SET innodb_strict_mode=1',
+        },
     }
 }
 
