@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'market',
-#    'django_cleanup',
-#    'imagekit',
+    'django_cleanup',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
