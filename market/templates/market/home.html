@@ -73,23 +73,15 @@
       -->
 
 <!-- //////////////////// -->
-<form action="{% url 'search' %}" method="POST" novalidate="novalidate">
-    <select class="form-control search-slt">
-    <option value="none">学科</option>
-    {% for item in department_list %}
-        <option name="selected_department" value="{{ item.department }}">{{ item.department }}</option>
-    {% endfor %}
-    </select>
-
-    <input type="search" class="form-control search-slt" name="freeword">
-    <button type="submit" class="btn btn-danger wrn-btn">Search</button>
-    {% csrf_token %}
-</form>
+{% include 'market/search.html' %}
 <!-- //////////////////// -->
 
 <div class="container">
 {% if lesson %}
     <h2>カテゴリー：{{ lesson.title }} の検索結果</h2>
+{% endif %}
+{% if department %}
+    <h2>カテゴリー：{{ department.title }} の検索結果</h2>
 {% endif %}
 {% include 'market/photos_list.html' %}
 </div>

@@ -1,102 +1,21 @@
-{% extends 'market/home_base.html' %}
+<div>
+  <form action="{% url 'search' %}" method="POST" novalidate="novalidate">
+      <select class="form-control search-slt">
+      <option value="none">学科</option>
+      {% for item in department_list %}
+          <option name="selected_department" value="{{ item.department }}">{{ item.department }}</option>
+      {% endfor %}
+            <option name="selected_department" value="共通科目">共通科目</option>
+      	    <option name="selected_department" value="外国語科目">外国語科目</option>
+      	    <option name="selected_department" value="健康余暇科学科目">健康余暇科学科目</option>
+      	    <option name="selected_department" value="英語英文学科">英語英文学科</option>
+      	    <option name="selected_department" value="国際関係学科">国際関係学科</option>
+      	    <option name="selected_department" value="数学科">数学科</option>
+      	    <option name="selected_department" value="情報科学科">情報科学科</option>
+      </select>
 
-{% block content %}
-<!--    <form method="post" action="example.cgi">
-      <form action="cgi-bin/abc.cgi" method="post">
-	<form action="cgi-bin/example.cgi" class="word-search" method="get">
-
-	  <p class="words">検索したいキーワードを入力してください。</p>
-	  <input type="search" name="search" id="search" placeholder="キーワードを入力">
-	  <input type="submit" name="submit" id="search-button" value="検索">
-	</form>
-
-	<p>
-
-	  <input type="checkbox" name="undergraduate" value="学科" checked="checked">学科
-	  <select name="undergraduate">
-	    <!--value=送信される文字列-->
-<!--	    <option value="共通科目">共通科目</option>
-	    <option value="外国語科目">外国語科目</option>
-	    <option value="健康余暇科学科目">健康余暇科学科目</option>
-	    <option value="英語英文学科">英語英文学科</option>
-	    <option value="国際関係学科">国際関係学科</option>
-	    <option value="数学科">数学科</option>
-	    <option value="情報科学科">情報科学科</option>
-
-	  </select>
-	  <input type="checkbox" name="term" value="ターム" checked="checked">ターム
-	  <select name="undergraduate">
-	    <!--value=送信される文字列-->
-<!--	    <option value="1ターム">１ターム</option>
-	    <option value="2ターム">２ターム</option>
-	    <option value="3ターム">３ターム</option>
-	    <option value="4ターム">４ターム</option>
-
-
-	  </select>
-	  <input type="checkbox" name="week" value="曜日" checked="checked">曜日
-	  <select name="undergraduate">
-	    <!--value=送信される文字列-->
-<!--	    <option value="月曜">月曜</option>
-	    <option value="火曜">火曜</option>
-	    <option value="水曜">水曜</option>
-	    <option value="木曜">木曜</option>
-	    <option value="金曜">金曜</option>
-
-	  </select>
-	  <input type="checkbox" name="period" value="時限" checked="checked">時限
-	  <select name="period">
-	    <!--value=送信される文字列-->
-<!--	    <option value="1限">１限</option>
-	    <option value="2限">２限</option>
-	    <option value="3限">３限</option>
-	    <option value="4限">４限</option>
-	    <option value="5限">５限</option>
-	    <option value="6限">６限</option>
-
-	  </select>
-	  <input type="checkbox" name="level" value="学年" checked="checked">学年
-	  <select name="level">
-	    <!--value=送信される文字列-->
-<!--	    <option value="1年">１年</option>
-	    <option value="2年">２年</option>
-	    <option value="3年">３年</option>
-	    <option value="4年">４年</option>
-
-
-	  </select>
-	</p>
-
-	<p><input type="submit" id="search-button2" value="検索する"></p>
-
-      </form>
-      -->
-
-<!-- //////////////////// -->
-<div class="ui action input" style="width: 100%;">
-      <input type="text" placeholder="検索">
-      <button class="ui button"><i class="search icon"></i></button>
+      <input type="search" class="form-control search-slt" name="freeword">
+      <button type="submit" class="btn btn-danger wrn-btn">Search</button>
+      {% csrf_token %}
+  </form>
 </div>
-
-<form action="{% url 'search' %}" method="POST" novalidate="novalidate">
-    <select class="form-control search-slt">
-    <option value="none">学科</option>
-    {% for textbook in department_list %}
-        <option name="selected_department" value="{{ textbook.department }}">{{ textbook.department }}</option>
-    {% endfor %}
-    </select>
-
-    <input type="search" class="form-control search-slt" name="freeword">
-    <button type="submit" class="btn btn-danger wrn-btn">Search</button>
-    {% csrf_token %}
-</form>
-<!-- //////////////////// -->
-
-<div class="container">
-{% if lesson %}
-    <h2>カテゴリー：{{ lesson.title }} の検索結果</h2>
-{% endif %}
-{% include 'market/photos_list.html' %}
-</div>
-</div>
-{% endblock %}

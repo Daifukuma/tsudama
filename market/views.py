@@ -22,18 +22,18 @@ from django.db.models import Q
 from django import forms
 from django_filters import rest_framework as filters
 
-class Index(ListView):
-    model = Textbook
-    template_name = 'market/home.html'
+#class Index(request):
+#    model = Textbook
+#    template_name = 'market/home.html'
 
-    def get_context_data(self, *args, **kwargs):
-        searchform = SearchForm()
-        textbook_list = Textbook.objects.all()
-        params = {
-            'searchform': searchform,
-            'textbook_list': textbook_list,
+def get_context_data(self, *args, **kwargs):
+    searchform = SearchForm()
+    textbook_list = Textbook.objects.all()
+    params = {
+        'searchform': searchform,
+        'textbook_list': textbook_list,
         }
-        return params
+    return params
 
 def Search(request):
     if request.method == 'POST':
@@ -43,13 +43,13 @@ def Search(request):
             selected_department = form.cleaned_data.get['selected_department']
 #            selected_department =  request.POST.get('selected_department', None)
             freeword = form.cleaned_data.get['freeword']
-            textbook_list = Textbook.objects.filter(Q(title__icontains = 'freeword')|Q(department__department = 'selected_department')).distinct()
+            textbook_list = Textbook.objects.filter(Q(title__icontains = 'freeword')|Q(department__department = 'selected_department'))
 
     params = {
         'textbook_list': textbook_list,
     }
 
-    return render(request, 'market/home.html', params)
+    return render(request, 'market/search.html', params)
 # /////////////////
 
 def book_list(request):
@@ -133,3 +133,12 @@ def photos_lesson(request, lesson):
 #    photos = Photo.objects.filter(category=category).order_by('-created_at')
     textbooks = Textbook.objects.filter(lesson=lesson).order_by('-created_at')
     return render(request, 'market/home.html', {'textbooks': textbooks, 'lesson':lesson})
+
+def photos_department(request, department):
+    # titleがURLの文字列と一致するCategoryインスタンスを取得
+#    category = Category.objects.get(title=category)
+    department = Department.objects.get(title=department)
+    # 取得したCategoryに属するPhoto一覧を取得
+#    photos = Photo.objects.filter(category=category).order_by('-created_at')
+    textbooks = Textbook.objects.filter(department=department).order_by('-created_at')
+    return render(request, 'market/home.html', {'textbooks': textbooks, 'department':department})
