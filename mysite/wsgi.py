@@ -23,7 +23,7 @@ if path not in sys.path:
 os.environ.setdefault('AWS_ACCESS_KEY_ID','<SNIP>')
 os.environ.setdefault('AWS_SECRET_ACCESS_KEY','<SNIP>')
 os.environ.setdefault('DJANGO_SECRET_KEY','<SNIP>')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE','projent.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE','tsudama.settings')
 os.environ.setdefault('DJANGO_CONFIGURATION','Prod')
 
 from configurations.wsgi import get_wsgi_application
