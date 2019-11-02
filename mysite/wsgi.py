@@ -15,6 +15,11 @@ import sys
 #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
 #application = get_wsgi_application()
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+from django.conf import settings
+
+from django.core.wsgi import get_wsgi_application
+from whitenoise.django import DjangoWhiteNoise
 
 path = '/home/Tsudama01/tsudama01.pythonanywhere.com/'
 if path not in sys.path:
@@ -28,3 +33,10 @@ os.environ.setdefault('DJANGO_CONFIGURATION','Prod')
 
 from configurations.wsgi import get_wsgi_application
 application = get_wsgi_application()
+
+if not settings.DEBUG:
+    try:
+        application = get_wsgi_application()
+        application = DjangoWhiteNoise(application)
+    except:
+        pass
