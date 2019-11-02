@@ -15,28 +15,21 @@ import sys
 #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
 #application = get_wsgi_application()
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
-from django.conf import settings
-
-from django.core.wsgi import get_wsgi_application
-from whitenoise.django import DjangoWhiteNoise
 
 path = '/home/Tsudama01/tsudama01.pythonanywhere.com/'
 if path not in sys.path:
     sys.path.append(path)
 
-os.environ.setdefault('AWS_ACCESS_KEY_ID','<SNIP>')
-os.environ.setdefault('AWS_SECRET_ACCESS_KEY','<SNIP>')
-os.environ.setdefault('DJANGO_SECRET_KEY','<SNIP>')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE','tsudama.settings')
-os.environ.setdefault('DJANGO_CONFIGURATION','Prod')
+#os.environ.setdefault('AWS_ACCESS_KEY_ID','<SNIP>')
+#os.environ.setdefault('AWS_SECRET_ACCESS_KEY','<SNIP>')
+#os.environ.setdefault('DJANGO_SECRET_KEY','<SNIP>')
+#os.environ.setdefault('DJANGO_SETTINGS_MODULE','projent.settings')
+#os.environ.setdefault('DJANGO_CONFIGURATION','Prod')
 
-from configurations.wsgi import get_wsgi_application
-application = get_wsgi_application()
+os.environ['DJANGO_SETTINGS_MODULE'] = 'tsudama.settings'
 
-if not settings.DEBUG:
-    try:
-        application = get_wsgi_application()
-        application = DjangoWhiteNoise(application)
-    except:
-        pass
+from django.core.wsgi import get_wsgi_application
+form django.contrib_staticfiles.handlers import StaticFilesHandler
+#from configurations.wsgi import get_wsgi_application
+#application = get_wsgi_application()
+application = StaticFilesHandler(get_wsgi_application())
