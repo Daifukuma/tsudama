@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from imagekit.models import ImageSpecField, ProcessedImageField
-from imagekit.processors import ResizeToFill
+#from imagekit.models import ImageSpecField, ProcessedImageField
+#from imagekit.processors import ResizeToFill
 #import文を足すことを忘れずに
 
 #class Lesson(models.Model):
