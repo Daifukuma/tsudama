@@ -86,7 +86,7 @@ def photos_delete(request, pk):
     textbook.delete()
     return redirect('users_exhibit', request.user.id)
 
-def photos_lesson(request, department):
+def photos_department(request, department):
     # titleがURLの文字列と一致するCategoryインスタンスを取得
 #    category = Category.objects.get(title=category)
 #    lesson = Lesson.objects.get(title=lesson)

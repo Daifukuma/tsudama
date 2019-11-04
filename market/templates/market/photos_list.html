@@ -1,7 +1,7 @@
 <div class="photo-container">
 {% for textbook in textbooks %}
     <div class="photo">
-        <a href="{% url 'photos_lesson' lesson=textbook.department %}" class="department">{{ textbook.department }}</a>
+        <a href="{% url 'photos_department' department=textbook.department %}" class="department">{{ textbook.department }}</a>
         <a href="{% url 'photos_detail' textbook.id %}">
             <img src="{{ textbook.image.url }}" class="photo-img">
         </a>
