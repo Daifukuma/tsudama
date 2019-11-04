@@ -99,5 +99,5 @@ def photos_department(request, department):
 
 def photos_lesson(request, lesson):
     lesson = Lesson.objects.get(title=lesson)
-    textbooks = Textbook.objects.filter(lesson=lesson).order_by('-created_at_1')
+    textbooks = Textbook.objects.filter(lesson=lesson)
     return render(request, 'market/home.html', {'textbooks': textbooks, 'lesson':lesson})
