@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 #from .models import Photo
-from .models import Textbook, Department,Lesson
+from .models import Textbook, Department
 from django.contrib.auth.forms import UserCreationForm
 from . import views
 from django.contrib.auth import authenticate, login
@@ -96,8 +96,3 @@ def photos_department(request, department):
 #    textbooks = Textbook.objects.filter(lesson=lesson).order_by('-created_at')
     textbooks = Textbook.objects.filter(department=department).order_by('created_at')
     return render(request, 'market/home.html', {'textbooks': textbooks, 'department':department})
-
-def photos_lesson(request, lesson):
-    lesson = Lesson.objects.get(title=lesson)
-    textbooks = Textbook.objects.filter(lesson=lesson)
-    return render(request, 'market/home.html', {'textbooks': textbooks, 'lesson':lesson})
