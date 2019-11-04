@@ -26,8 +26,10 @@
       background: url('/static/img/logo.png');
       background-size: 100%;
     }
-    center {
+    .outer {
       text-align: center;
+    }
+    .inner {
       display: table-cell;
       vertical-align: middle;
     }
@@ -82,12 +84,14 @@
   <body>
     <div class="header"></div>
 <!--    <img src="/static/img/logo.png" alt="ロゴ" width="150" height="100">-->
-    <center>
-      <div class="main_img"></div><!--画像（ロゴ）表示-->
-      <p>~津田塾大学生のためのフリーマーケット~</p>
-      <a href="{% url 'signup' %}"><button id="new" type="button">　　新規登録　　</button></a>
-      <a href="{% url 'login' %}"><button id="login" type="button">　　ログイン　　</button></a>
-    </center>
+    <div class="outer">
+      <div class="inner">
+        <div class="main_img"></div><!--画像（ロゴ）表示-->
+        <p>~津田塾大学生のためのフリーマーケット~</p>
+        <a href="{% url 'signup' %}"><button id="new" type="button">　　新規登録　　</button></a>
+        <a href="{% url 'login' %}"><button id="login" type="button">　　ログイン　　</button></a>
+      </div>
+    </div>
 
     <center>
       <p id="official">(T) TSUDAMA</p>
