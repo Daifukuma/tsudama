@@ -35,13 +35,6 @@
       font-size: 25px;
       color: #8b8888;
     }
-    hom {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateY(-50%) translateX(-50%);
-      -webkit- transform: translateY(-50%) translateX(-50%);
-    }
     #official {
       background: #8b8888;
       height: 30px;
@@ -92,12 +85,11 @@
     <div class="header"></div>
 <!--    <img src="/static/img/logo.png" alt="ロゴ" width="150" height="100">-->
     <center>
-      <div class="hom">
-        <div class="main_img"></div><!--画像（ロゴ）表示-->
-        <p>~津田塾大学生のためのフリーマーケット~</p>
-        <a href="{% url 'signup' %}"><button id="new" type="button">　　新規登録　　</button></a>
-        <a href="{% url 'login' %}"><button id="login" type="button">　　ログイン　　</button></a>
-      </div>
+      <div class="main_img"></div><!--画像（ロゴ）表示-->
+      <p>~津田塾大学生のためのフリーマーケット~</p>
+      <a href="{% url 'signup' %}"><button id="new" type="button">　　新規登録　　</button></a>
+      <a href="{% url 'login' %}"><button id="login" type="button">　　ログイン　　</button></a>
+
       <div id="official">(T) TSUDAMA</div>
     </center>
   </body>
