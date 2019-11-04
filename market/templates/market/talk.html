@@ -129,7 +129,7 @@
             <li><a id="post" href="{% url 'photos_new' %}">投稿</a></li> <!-- 更新 -->
             {% if request.user.is_authenticated %}
               <li><a id="post" href="{% url 'users_exhibit' request.user.id %}">マイページ</a></li>
-              <li><a id="post" href="{% url 'logout' %}">ログアウト</a></li>
+              <li><a id="post" href="{% url 'book_list' %}">ログアウト</a></li>
             {% else %}
               <li><a id="post" href="{% url 'login' %}">ログイン</a></li>
             {% endif %}
