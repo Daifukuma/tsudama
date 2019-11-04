@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 #from .models import Photo
-from .models import Textbook, Lesson
+from .models import Textbook, Department
 from django.contrib.auth.forms import UserCreationForm
 from . import views
 from django.contrib.auth import authenticate, login
