@@ -6,6 +6,7 @@
             <img src="{{ textbook.image.url }}" class="photo-img">
         </a>
         <div class="photo-info">
+            <a href="{% url 'photos_lesson' lesson=textbook.lesson %}" class="lesson">{{ textbook.lesson }}</a>
             <p>{{textbook.lesson}}</p>
             <p>{{textbook.point}} 円</p>
         </div>

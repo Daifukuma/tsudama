@@ -24,7 +24,7 @@
 	    <option value="情報科学科">情報科学科</option>
 
 	  </select>
-	  <input type="checkbox" name="term" value="ターム" checked="checked">ターム
+	  <input type="checkbox" name="term" value="ターム" checked="unchecked">ターム
 	  <select name="undergraduate">
 	    <!--value=送信される文字列-->
 	    <option value="1ターム">１ターム</option>
@@ -34,7 +34,7 @@
 
 
 	  </select>
-	  <input type="checkbox" name="week" value="曜日" checked="checked">曜日
+	  <input type="checkbox" name="week" value="曜日" checked="unchecked">曜日
 	  <select name="undergraduate">
 	    <!--value=送信される文字列-->
 	    <option value="月曜">月曜</option>
@@ -44,7 +44,7 @@
 	    <option value="金曜">金曜</option>
 
 	  </select>
-	  <input type="checkbox" name="period" value="時限" checked="checked">時限
+	  <input type="checkbox" name="period" value="時限" checked="unchecked">時限
 	  <select name="period">
 	    <!--value=送信される文字列-->
 	    <option value="1限">１限</option>
@@ -55,7 +55,7 @@
 	    <option value="6限">６限</option>
 
 	  </select>
-	  <input type="checkbox" name="level" value="学年" checked="checked">学年
+	  <input type="checkbox" name="level" value="学年" checked="unchecked">学年
 	  <select name="level">
 	    <!--value=送信される文字列-->
 	    <option value="1年">１年</option>
@@ -74,6 +74,9 @@
 <div class="container">
 {% if department %}
     <h2>カテゴリー：{{ department.title }} の検索結果</h2>
+{% endif %}
+{% if lesson %}
+    <h2>カテゴリー：{{ lesson.title }} の検索結果</h2>
 {% endif %}
 {% include 'market/photos_list.html' %}
 </div>
