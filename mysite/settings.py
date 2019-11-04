@@ -129,9 +129,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/home/Tsudama01/tsudama01.pythonanywhere.com/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = "/s/"
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = "/s/"
 
 #画像の保存先を設定する
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
