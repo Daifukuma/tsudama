@@ -11,7 +11,7 @@
 	</form>
 
 	<p>
-    <form name="depa">
+
 	  <input type="checkbox" name="undergraduate" value="学科" checked="checked">学科
 	  <select name="undergraduate">
 	    <!--value=送信される文字列-->
@@ -24,7 +24,6 @@
 	    <option value="情報科学科">情報科学科</option>
 
 	  </select>
-    </form>
 	  <input type="checkbox" name="term" value="ターム" checked="checked">ターム
 	  <select name="undergraduate">
 	    <!--value=送信される文字列-->
@@ -68,7 +67,7 @@
 	  </select>
 	</p>
 
-	<a href="{% url 'photos_department' department=document.depa.undergraduate.selectedIndex.options[num].value %}" class="department"><p><input type="submit" id="search-button2" value="検索する"></p></a>
+	<a href="{% url 'photos_department' department="情報科学科" %}" class="department"><p><input type="submit" id="search-button2" value="検索する"></p></a>
 
       </form>
 
