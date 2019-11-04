@@ -86,6 +86,15 @@
       background: url('/static/img/logo.png');
       background-size: 100%;
     }
+    #official {
+      color: #fff;
+      font-size: 12px;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
     .flame {
       position: relative;
       margin: auto;
@@ -276,6 +285,6 @@
   <p id="exhibitor-infomation">出品者情報</p>
 <a href="{% url 'users_exhibit' textbook.user.id %}">@{{ textbook.user }}</a>
 </div>
-
+<div id="official">(T) TSUDAMA</div>
 </body>
 </html>

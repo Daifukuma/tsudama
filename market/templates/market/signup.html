@@ -29,6 +29,15 @@
       background: url('/static/img/logo.png');
       background-size: 100%;
     }
+    #official {
+      color: #fff;
+      font-size: 12px;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
     .flame {
       position: relative;
       margin: auto;
@@ -109,7 +118,7 @@
 <u><a href="{% url 'login' %}" id="login">ログインはこちら</a></u>
 
 {% endblock %}
-
+<div id="official">(T) TSUDAMA</div>
 </div>
 </body>
 </html>
