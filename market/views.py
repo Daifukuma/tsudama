@@ -86,11 +86,13 @@ def photos_delete(request, pk):
     textbook.delete()
     return redirect('users_exhibit', request.user.id)
 
-def photos_lesson(request, lesson):
+def photos_lesson(request, department):
     # titleがURLの文字列と一致するCategoryインスタンスを取得
 #    category = Category.objects.get(title=category)
-    lesson = Lesson.objects.get(title=lesson)
+#    lesson = Lesson.objects.get(title=lesson)
+    department = Department.objects.get(title=department)
     # 取得したCategoryに属するPhoto一覧を取得
 #    photos = Photo.objects.filter(category=category).order_by('-created_at')
-    textbooks = Textbook.objects.filter(lesson=lesson).order_by('-created_at')
-    return render(request, 'market/home.html', {'textbooks': textbooks, 'lesson':lesson})
+#    textbooks = Textbook.objects.filter(lesson=lesson).order_by('-created_at')
+    textbooks = Textbook.objects.filter(department=department).order_by('created_at')
+    return render(request, 'market/home.html', {'textbooks': textbooks, 'department':department})
