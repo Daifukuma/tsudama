@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/first.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'css/first.css' %}">-->
     <style type="text/css">
     body {
         positon: relative;
@@ -15,7 +15,7 @@
     }
     .header {
       width: 100%;
-      height: 60px;
+      height: 50px;
       background: #8B8888;
     }
     .main_img {
@@ -26,12 +26,22 @@
       background: url('/static/img/logo.png');
       background-size: 100%;
     }
+    center {
+      display: table-cell;
+      vertical-align: middle;
+    }
     p {
       position: relative;
       margin-top: 70px;
       font-family: Roboto;
       font-size: 25px;
       color: #8b8888;
+    }
+    #official {
+      color: #fff;
+      font-size: 18px;
+      position: absolute;
+      bottom: 0;
     }
     #new {
       display: inline-block;
@@ -76,6 +86,10 @@
       <p>~津田塾大学生のためのフリーマーケット~</p>
       <a href="{% url 'signup' %}"><button id="new" type="button">　　新規登録　　</button></a>
       <a href="{% url 'login' %}"><button id="login" type="button">　　ログイン　　</button></a>
+    </center>
+
+    <center>
+      <p id="official">@TSUDAMA</p>
     </center>
   </body>
 </html>
