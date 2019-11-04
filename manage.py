@@ -18,7 +18,9 @@ import sys
 
 
 if __name__ == '__main__':
-#    main()
+    main()
+
+def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 #    os.environ.setdefault('DJANGO_CONFIGURATION','Dev')
     try:
