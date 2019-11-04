@@ -67,42 +67,6 @@ p {
 .header-menu > ul > li:hover > a {
 	color: rgb( 255, 255, 255 );
 }
-/*
-.header-menu > ul > li:hover > a > .caret {
-	border-top-color: rgb( 255, 255, 255 );
-}
-.header-menu > ul > li > div {
-	background-color: rgb(218, 60, 65);
-	border-top: 0;
-	border-radius: 0 0 4px 4px;
-	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
-	display: none;
-	margin: 0;
-	opacity: 0;
-	position: absolute;
-	width: 165px;
-	visibility: hidden;
-	-webkit-transiton: opacity 0.2s;
-	       transition: opacity 0.2s;
-}
-.header-menu > ul > li:hover > div {
-	display: block;
-	opacity: 1;
-	visibility: visible;
-}
-.header-menu > ul > li > div ul > li {
-	display: block;
-}
-.header-menu > ul > li > div ul > li > a {
-	color: #ffffff;
-	display: block;
-	padding: 12px 24px;
-	text-decoration: none;
-}
-.header-menu > ul > li > div ul > li:hover > a {
-	background-color: rgba( 255, 255, 255, 0.1);
-}
-*/
 /* ************ */
 
 .main_img {
@@ -203,17 +167,6 @@ header h1 {
     height: 100%;
     line-height: 70px;
 }
-/*
-.header-menu {
-    display: flex;
-    align-items: center;
-}
-
-.header-menu a {
-    padding: 10px;
-    margin-left: 10px;
-}
-*/
 .photo {
     width: calc(100%/3);
     float: left;

@@ -6,15 +6,7 @@ body {
 p {
   color: #383838;
 }
-/*
-.header {
-  width: 100%;
-  height: 40px;
-  background: #8B8888;
-}
-*/
 /* ***メニュー*** */
-
 .header-menu {
 
   height: 40px;
@@ -39,20 +31,6 @@ p {
 	-webkit-transition: all 0.2s;
 	        transition: all 0.2s;
 }
-/*
-.header-menu > ul > li > a > .caret {
-	border-top: 4px solid #aaaaaa;
-	border-right: 4px solid transparent;
-	border-left: 4px solid transparent;
-	content: '';
-	display: inline-block;
-	height: 0;
-	width: 0;
-	vertical-align: middle;
-	-webkit-transition: color 0.1s linear;
-	        transition: color 0.1s linear;
-}
-*/
 .header-menu > ul > li > a {
 	color: #aaaaaa;
 	display: block;
