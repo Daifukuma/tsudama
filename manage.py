@@ -17,9 +17,6 @@ import sys
 #    execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
-    main()
-
 def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 #    os.environ.setdefault('DJANGO_CONFIGURATION','Dev')
@@ -33,3 +30,6 @@ def main():
             "forget to activate a virtual environment?"
         )
     execute_from_command_line(sys.argv)
+
+if __name__ == '__main__':
+    main()
