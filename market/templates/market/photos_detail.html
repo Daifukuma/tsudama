@@ -283,6 +283,7 @@
 <p id="goodmoji">いいね！</p>
 <img src="{{ textbook.image.url }}" class="photo-img">
 <hr size="5" color="#989898">
+<div class ="info">
 <p>{{ textbook.department }} {{ textbook.schoolyear }} {{ textbook.lesson }}</p>
 <p>{{ textbook.status }}</p>
 <p>{{ textbook.comment }}</p>
@@ -294,6 +295,7 @@
 {% endif %}
 <!--<a href="{% url 'talk' %}"><button id="talk" type="button">交渉へ</button></a>-->
 <a href=""><button id="talk" type="button">交渉へ</button></a>
+</div>
 </div>
 </div>
 {% endblock %}
