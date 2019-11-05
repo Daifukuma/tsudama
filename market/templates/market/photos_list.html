@@ -16,4 +16,20 @@
         <div class="whi"></div>
     </div>
 {% endfor %}
+<div class="pager">
+    <!-- 前のページへのリンク -->
+    {% if textbooks.has_previous %}
+        <a href="?p={{ textbooks.previous_page_number }}">前へ</a>
+    {% endif %}
+
+    <!-- 現在のページ番号と全体のページ数 -->
+    <span>
+        {{ textbooks.number }} / {{ textbooks.paginator.num_pages }}
+    </span>
+
+    <!-- 次のページへのリンク -->
+    {% if textbooks.has_next %}
+        <a href="?p={{ textbooks.next_page_number }}">次へ</a>
+    {% endif %}
+</div>
 </div>

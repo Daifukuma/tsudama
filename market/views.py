@@ -1,4 +1,4 @@
-#from django.shortcuts import render
+from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
@@ -15,10 +15,14 @@ from .forms import TextbookForm
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 #from .models import Photo, Category
+from django.core.paginator import Paginator
 
 def book_list(request):
-    books = Textbook.objects.order_by('point')
-    return render(request, 'market/first.html', {'books':books})
+    books = Textbook.objects.all()
+    paginator = Paginator(all_articles, 5)
+    p = request.GET.get('p')
+    textbooks = paginator.get_page(p)
+    return render(request, 'market/first.html', {'textbooks':textbooks})
 
 def login(request):
     return render(request, 'market/login.html')
