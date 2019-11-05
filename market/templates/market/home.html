@@ -13,7 +13,7 @@
 	<p>
 
 	  <input type="checkbox" name="undergraduate" value="学科" checked="checked">学科
-	  <select id="undergraduate">
+	  <select id="under">
 	    <!--value=送信される文字列-->
 	    <option value="共通科目">共通科目</option>
 	    <option value="外国語科目">外国語科目</option>
@@ -67,7 +67,7 @@
 	  </select>
 	</p>
 
-	<a href="{% url 'photos_department' department=clickDP('undergraduate') %}" class="department"><p><input type="submit" id="search-button2" value="検索する"></p></a>
+	<a href="{% url 'photos_department' department=clickDP('under') %}" class="department"><p><input type="submit" id="search-button2" value="検索する"></p></a>
 
   <script type="text/javascript">
     function clickDP(idname){
