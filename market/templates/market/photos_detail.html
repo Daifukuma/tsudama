@@ -9,6 +9,8 @@
     <style type="text/css">
     body {
         position: relative;
+        padding-bottom: 120px;
+        box-sizing: border-box;
         text-align: center;
         background: #eee2e9;
     }
@@ -87,10 +89,12 @@
       background-size: 100%;
     }
     #official {
+      background: #8b8888;
+      color: #fff;
       color: #fff;
       font-size: 12px;
       position: absolute;
-      bottom: 5px;
+      bottom: 0px;
       left: 0;
       right: 0;
       margin: auto;
@@ -230,7 +234,15 @@
     .photo-img:hover {
         opacity: 1;
     }
-
+    .department {
+      position:relative;
+      margin-left: 20px;
+      width: 80%;
+      background: #eee2e9;
+      border-radius: 3px;
+      margin-bottom: 8px;
+      color: #6f6f6f;
+    }
     </style>
     <title>product</title> <!--サイトの名前-->
 
@@ -266,6 +278,7 @@
 <button id="good" type="button">♡</button>
 <p id="goodmoji">いいね！</p>
 <img src="{{ textbook.image.url }}" class="photo-img">
+<hr color="#989898">
 <p>{{ textbook.department }} {{ textbook.schoolyear }} {{ textbook.lesson }}</p>
 <p>{{ textbook.status }}</p>
 <p>{{ textbook.comment }}</p>
