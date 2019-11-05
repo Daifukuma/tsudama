@@ -210,22 +210,7 @@
           border-radius: 4px;
       }
     </style>
-    <style type="text/JavaScript">
-    document.addEventListener('DOMContentLoaded', e => {
-    for (const fileInput of document.querySelectorAll('input.preview-marker')) {
-        const img = document.getElementById(fileInput.dataset.target);
-        if (img) {
-            fileInput.addEventListener('change', e => {
-                img.src = window.URL.createObjectURL(e.target.files[0]);
-            });
-            const initialURL = fileInput.dataset.initial;
-            if (initialURL) {
-                img.src = initialURL;
-            }
-        }
-    }
-});
-    </style>
+
     <title>home</title> <!--サイトの名前-->
   </head>
 
@@ -258,16 +243,7 @@
           </tr>
           <tr>
               <th>画像</th>
-<!--              <td>{{ form.image }}</td>-->
-<td>{{ form.media }}</td>
-              {% if widget.is_initial %}{{ widget.initial_text }}: <a href="{{ widget.value.url }}">{{ widget.value }}</a>{% if not widget.required %}
-<input type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
-<label for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>{% endif %}<br>
-{{ widget.input_text }}:{% endif %}
-<input type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %} data-target="{{ widget.name }}-preview" data-initial="{{ widget.value.url }}">
-{% if widget.include_preview %}
-    <br><img src="" id="{{ widget.name }}-preview"  class="default-preview-img">
-{% endif %}
+              <td>{{ form.image }}</td>
           </tr>
           <tr>
               <th>使用する学科</th>

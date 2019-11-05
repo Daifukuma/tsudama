@@ -193,7 +193,6 @@ class Textbook(models.Model):
     )
     image = models.ImageField(
         verbose_name='画像',
-        widget=FileInputWithPreview,
         upload_to = 'textbooks',
     )
     user = models.ForeignKey(User,on_delete=models.CASCADE)

@@ -38,11 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'market',
-    'django.forms',
 #    'django_cleanup',
 #    'imagekit',
 ]
-FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
