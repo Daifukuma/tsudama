@@ -3,11 +3,15 @@
     <div class="photo">
         <a href="{% url 'photos_department' department=textbook.department %}" class="department">{{ textbook.department }}</a>
         <a href="{% url 'photos_detail' textbook.id %}">
+            <h5>{{textbook.title}}</h5>
             <img src="{{ textbook.image.url }}" class="photo-img">
         </a>
         <div class="photo-info">
             <p>{{textbook.lesson}}</p>
             <p>{{textbook.point}} 円</p>
+            {% if textbook.status="新品同様" %}
+            <p>{{ textbook.status }}</p>
+            {% endif %}
         </div>
         <div class="whi"></div>
     </div>
