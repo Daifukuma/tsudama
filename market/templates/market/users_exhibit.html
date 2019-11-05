@@ -1,6 +1,238 @@
-{% extends 'market/home.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!--    <link rel="stylesheet" href="{% static 'css/home.css' %}"> -->
+    <style type="text/css">
+      body {
+          position: relative;
+          padding-bottom: 120px;
+          box-sizing: border-box;
+          text-align: center;
+          background: #eee2e9;
+      }
+      p {
+        color: #383838;
+      }
+      /* ***メニュー*** */
+      .header-menu {
+        width: 100%;
+        height: 50px;
+        position: relative;
+        top: auto;
+        text-align: right;
+        background-color: #8b8888;
+        border: 1px solid #dedede;
+        box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.055);
+        color: #fff;
+        display: block;
+        overflow: hidden;
+      }
+      .header-menu ul {
+        margin: 0;
+        padding: 0;
+      }
+      .header-menu ul li {
+        display: inline-block;
+        list-style-type: none;
+        -webkit-transition: all 0.2s;
+                transition: all 0.2s;
+      }
+      .header-menu > ul > li > a {
+        color: #aaaaaa;
+        display: block;
+        line-height: 56px;
+        padding: 0 10px;
+        text-decoration: none;
+      }
+      .header-menu > ul > li:hover {
+        background-color: #e89999;
+      }
+      .header-menu > ul > li:hover > a {
+        color: rgb( 255, 255, 255 );
+      }
+      /* ***ロゴ表示*** */
+      .main_img {
+        position: relative;
+        top: 8px;
+        width: 170px;
+        height: 80px;
+        background: url('/static/img/logo.png');
+        background-size: 100%;
+      }
+      #official {
+        background: #8b8888;
+        color: #fff;
+        font-size: 12px;
+        position: absolute;
+        bottom: 0px;
+        height: 30px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .words {
+        position: relative;
+        margin-top: 20px;
+      }
+      #search {
+        box-sizing: border-box;
+        position: relative;
+        max-width:300px;
+        border: 1px solid #999;
+        border-radius:5px 0 0 5px;
+        width: 350px;
+        padding: 0.25em 0.5em;
+        outline:0;
+        margin-bottom:30px;
+        background:#eee;
+      }
+      #search-button {
+        position: relative;
+        margin-left: -5px;
+        display: inline-block;
+        font-weight: bold;
+        padding: 0.25em 0.5em;
+        text-decoration: none;
+        color: #fff;
+        background: #6f6f6f;
+        border: 1px solid #999;
+        border-radius: 0 5px 5px 0;
+        transition: .4s;
+      }
+      #search-button: hover {
+        background: #e89999;
+      }
+      #search-button2 {
+        display: inline-block;
+        position: relative;
+        margin-left: 750px;
+        top: -90px;
+        text-decoration: none;
+        background: #E89999;
+        color: #FFF;
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        border-radius: 50%;
+        text-align: center;
+        font-weight: bold;
+        overflow: hidden;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+        border-bottom: solid 3px #bd6565;
+        transition: .4s;
+      }
+      #search-button2: hover {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+        border-bottom: none;
+      }
+      .container {
+        width: 90%;
+        text-align: center;
+        margin: auto;
+        overflow: auto;
+      }
+      .photo {
+        background: linear-gradient(135deg,transparent 20px, #fff 20px);
+        background-position: top left;
+        background-repeat: no-repeat;
+        margin-bottom: 20px;
+        margin-right: 20px;
+          width: calc(100%/6);
+  /*        width: 225px;*/
+          height: 330px;
+          float: left;
+          padding: 10px;
+      }
+      .photo a {
+          display: block;
+      }
+      .department {
+        position:relative;
+        margin-left: 20px;
+        width: 80%;
+        background: #eee2e9;
+        border-radius: 3px;
+        margin-bottom: 8px;
+        color: #6f6f6f;
+      }
+      .photo-info a:hover {
+          text-decoration: underline;
+      }
 
-{% block content %}
+      .photo-info .department {
+          display: inline-block;
+          padding: 2px 5px;
+          border-radius: 4px;
+          font-size: 12px;
+          color: #fff;
+          background-color: #000;
+      }
+      h5 {
+        border-bottom: double 5px #F96491;
+      }
+      .user-name {
+          font-size: 40px;
+      }
+      .photo-size {
+        display: block;
+        width: calc(100%);
+        height: auto;
+      }
+      .photo-img {
+          width: 100%;
+          max-width: 150px;
+          height: 3/4*100%;
+          object-fit: cover;
+          border-radius: 4px;
+      }
+
+      .photo-img:hover {
+          opacity: 0.8;
+      }
+
+      .photo-detail .photo-img{
+          object-fit: contain;
+      }
+
+      .photo-detail .photo-img:hover {
+          opacity: 1;
+      }
+
+      .message-success {
+          background-color: #DE9498;
+          padding: 10px;
+          padding-left: 30px;
+          border-radius: 4px;
+      }
+    </style>
+
+    <title>home</title> <!--サイトの名前-->
+  </head>
+
+  <body>
+<!--メニュー-->
+      <div class="header-menu">
+        <ul>
+            <li><a id="home" href="{% url 'home' %}">ホーム</a></li>
+            <li><a id="post" href="{% url 'photos_new' %}">投稿</a></li> <!-- 更新 -->
+            {% if request.user.is_authenticated %}
+              <li><a id="mypage" href="{% url 'users_exhibit' request.user.id %}">マイページ</a></li>
+              <li><a id="logout" href="{% url 'book_list' %}">ログアウト</a></li>
+            {% else %}
+              <li><a id="login" href="{% url 'login' %}">ログイン</a></li>
+            {% endif %}
+        </ul>
+      </div>
+<!--画像（ロゴ）表示-->
+    <center>
+      <a id="home" href="{% url 'home' %}"><div class="main_img"></div></a>
+      </center>
 
 <h2 class="user-name">ユーザー名：　{{ user.username }}</h2>
 
@@ -18,4 +250,7 @@
             {% endfor %}
 {% include 'market/photos_list.html' %}
 
-{% endblock %}
+<div id="official">(T) TSUDAMA</div>
+
+</body>
+</html>
