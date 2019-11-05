@@ -17,4 +17,5 @@ urlpatterns = [
     path('photos/<str:department>/', views.photos_department, name='photos_department'),
     path('product/', views.product, name='product'),
     path('talk/', views.talk, name='talk'),
+    path('follow/<int:pk>/', views.followPlace, name='follow'),
 ]
