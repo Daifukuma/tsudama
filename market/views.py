@@ -53,7 +53,7 @@ def signup(request):
             new_user = authenticate(username=input_username, password=input_password)
             if new_user is not None:
                 login(request)
-                return redirect('home', pk=new_user.pk)
+                return redirect('users_exhibit', pk=new_user.pk)
     else:
         form = UserCreationForm()
     return render(request, 'market/signup.html', {'form': form})
