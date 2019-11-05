@@ -67,10 +67,7 @@
 	  </select>
 	</p>
 
-  var obj = document.getElementById(undergraduate);
-  var result = obj.value;
-
-	<a href="{% url 'photos_department' department=result %}" class="department"><p><input type="submit" id="search-button2" value="検索する"></p></a>
+	<a href="{% url 'photos_department' department=clickDP('undergraduate') %}" class="department"><p><input type="submit" id="search-button2" value="検索する"></p></a>
 
       </form>
 
