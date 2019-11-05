@@ -18,10 +18,7 @@ from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator
 
 def book_list(request):
-    all_books = Textbook.objects.all()
-    paginator = Paginator(all_books, 5)
-    p = request.GET.get('p')
-    books = paginator.get_page(p)
+    books = Textbook.objects.order_by('point')
     return render(request, 'market/first.html', {'books':books})
 
 def login(request):
@@ -29,7 +26,10 @@ def login(request):
 
 def home(request):
 #    photos = Photo.objects.all().order_by('-created_at')
-    textbooks = Textbook.objects.all().order_by('-created_at')
+    all_textbooks = Textbook.objects.all().order_by('-created_at')
+    paginator = Paginator(all_textbooks, 10)
+    p = request.GET.get('p')
+    textbooks = paginator.get_page(p)
     return render(request, 'market/home.html', {'textbooks': textbooks})
 
 def product(request):

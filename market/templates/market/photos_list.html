@@ -18,18 +18,18 @@
 {% endfor %}
 <div class="pager">
     <!-- 前のページへのリンク -->
-    {% if books.has_previous %}
-        <a href="?p={{ books.previous_page_number }}">前へ</a>
+    {% if textbooks.has_previous %}
+        <a href="?p={{ textbooks.previous_page_number }}">前へ</a>
     {% endif %}
 
     <!-- 現在のページ番号と全体のページ数 -->
     <span>
-        {{ books.number }} / {{ books.paginator.num_pages }}
+        {{ textbooks.number }} / {{ textbooks.paginator.num_pages }}
     </span>
 
     <!-- 次のページへのリンク -->
-    {% if books.has_next %}
-        <a href="?p={{ books.next_page_number }}">次へ</a>
+    {% if textbooks.has_next %}
+        <a href="?p={{ textbooks.next_page_number }}">次へ</a>
     {% endif %}
 </div>
 </div>
