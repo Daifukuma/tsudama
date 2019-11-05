@@ -242,11 +242,8 @@
 <br>
 <div class="flame" style="padding: 10px; margin-bottom: 10px; border: 1px solid #8b8888; border-radius: 10px;">
 <h1>〜　{{ textbook.title }}　〜</h1>
-<form action="{% url 'follow' textbook.pk %}" method="post">
 <button id="good" type="submit">♡</button>
 <p id="goodmoji">いいね！</p>
-{% csrf_token %}
-</form>
 <img src="{{ textbook.image.url }}" class="photo-img">
 <hr color="#8b8888">
 <div class ="info">

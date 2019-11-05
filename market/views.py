@@ -82,11 +82,6 @@ def photos_detail(request, pk):
     textbook = get_object_or_404(Textbook, pk=pk)
     return render(request, 'market/photos_detail.html', {'textbook': textbook})
 
-def followPlace(request, pk):
-    textbook = get_object_or_404(Textbook, pk=pk)
-    request.user.favorite_textbook.add(textbook)
-    return redirect('market/favorite.html')
-
 @require_POST
 def photos_delete(request, pk):
 #    photo = get_object_or_404(Photo, pk=pk)
