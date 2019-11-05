@@ -2,11 +2,13 @@
 {% for textbook in textbooks %}
     <div class="photo">
         <a href="{% url 'photos_department' department=textbook.department %}" class="department">{{ textbook.department }}</a>
-        <a href="{% url 'photos_detail' textbook.id %}" class="photo-size">
+        <div class="photo-size">
+        <a href="{% url 'photos_detail' textbook.id %}">
             <h5>{{textbook.title}}</h5>
             <img src="{{ textbook.image.url }}" class="photo-img">
         </a>
-        <hr size="5" color="#F96491">
+        </div>
+        <hr size="5" color="#F96491" >
         <div class="photo-info">
             {{textbook.lesson}}
             {{textbook.point}} 円
