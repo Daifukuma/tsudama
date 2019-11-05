@@ -18,11 +18,11 @@ from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator
 
 def book_list(request):
-    books = Textbook.objects.all()
-    paginator = Paginator(all_articles, 5)
+    all_books = Textbook.objects.all()
+    paginator = Paginator(all_books, 5)
     p = request.GET.get('p')
-    textbooks = paginator.get_page(p)
-    return render(request, 'market/first.html', {'textbooks':textbooks})
+    books = paginator.get_page(p)
+    return render(request, 'market/first.html', {'books':books})
 
 def login(request):
     return render(request, 'market/login.html')
