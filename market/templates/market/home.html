@@ -69,6 +69,15 @@
 
 	<a href="{% url 'photos_department' department=clickDP('undergraduate') %}" class="department"><p><input type="submit" id="search-button2" value="検索する"></p></a>
 
+  <script type="text/javascript">
+    function clickDP(idname){
+      var obj = document.getElementById(idname);
+      var result = obj.value;
+
+      return result;
+    }
+  </script>
+
       </form>
 
 <div class="container">
