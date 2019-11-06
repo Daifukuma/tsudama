@@ -15,6 +15,7 @@
         </div>
     </div>
 {% endfor %}
+</div>
 <div class="pager">
     <!-- 前のページへのリンク -->
     {% if textbooks.has_previous %}
@@ -30,5 +31,4 @@
     {% if textbooks.has_next %}
         <a href="?p={{ textbooks.next_page_number }}">次へ</a>
     {% endif %}
-</div>
 </div>
